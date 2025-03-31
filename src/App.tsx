@@ -7,7 +7,7 @@ function App() {
 
   return (
     <ModalProvider>
-      <div className={`relative flex min-h-screen transition-colors z-0 overflow-hidden bg-slate-50`}>
+      <div className={`relative flex min-h-screen transition-colors z-0 overflow-hidden bg-slate-50 font-montserrat`}>
         <Navbar/>
         a
       </div>
