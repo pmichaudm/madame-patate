@@ -11,7 +11,7 @@ export default function Navbar() {
   };
 
   const liStyle =
-    "flex cursor-pointer h-full min-w-28 pt-1 items-center justify-center border-b-4 border-transparent hover:border-white transition-all duration-200";
+    "flex cursor-pointer h-full min-w-28 pt-1 items-center justify-center border-b-4 border-transparent hover:border-orange-600 transition-all duration-200";
 
   return (
     <nav className="flex w-full justify-between bg-slate-900 h-[80px] text-white relative">
@@ -27,7 +27,7 @@ export default function Navbar() {
         <li className={liStyle}>Menu</li>
         <li className={liStyle}>Histoire</li>
         <li className={liStyle}>Contact</li>
-        <li className="p-[10px] bg-red-800 ml-[25px] rounded-full cursor-pointer">
+        <li className="p-[10px] bg-orangePatate ml-[25px] rounded-full cursor-pointer hover:scale-110 transition-transform duration-200">
           <FontAwesomeIcon icon={faPhone} className="mr-2" />
           Commander
         </li>
