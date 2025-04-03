@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 shadow h-72 px-[75px]">
       <div className="flex flex-col h-full justify-center items-center">
-        <div className="flex w-full flex-col md:flex-row items-center justify-center gap-6 md:gap-12 bg-red-500">
+        <div className="flex w-full flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
           <div className="flex-1 flex flex-col items-center text-center">
             <h2 className="text-white text-2xl">Casse-Croûte Madame Patate</h2>
             <p className="text-white text-sm">Votre destination pour les meilleures patates frites!</p>
