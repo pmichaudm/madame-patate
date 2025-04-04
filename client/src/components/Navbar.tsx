@@ -5,6 +5,7 @@ import { faPhone, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [commanderHover, setCommanderHover] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -27,8 +28,8 @@ export default function Navbar() {
         <li className={liStyle}>Menu</li>
         <li className={liStyle}>Histoire</li>
         <li className={liStyle}>Contact</li>
-        <li className="p-[10px] bg-orangePatate ml-[25px] rounded-full cursor-pointer hover:scale-110 transition-transform duration-200">
-          <FontAwesomeIcon icon={faPhone} className="mr-2" />
+        <li className="p-[10px] bg-orangePatate ml-[25px] rounded-full cursor-pointer hover:scale-110 transition-transform duration-200" onMouseEnter={() => setCommanderHover(true)} onMouseLeave={() => setCommanderHover(false)}>
+          <FontAwesomeIcon icon={faPhone} className={`mr-2 ${commanderHover && 'animate-pulse'}`} />
           Commander
         </li>
       </ul>
