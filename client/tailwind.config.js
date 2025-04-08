@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        luckiestGuy: ["Luckiest Guy", "cursive"],
       },
       colors: {
         'orangePatate' : '#D87E41',
