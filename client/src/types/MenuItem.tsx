@@ -1,9 +1,15 @@
 type SizeOption = {
+  size: 'small' | 'medium' | 'large' | 'family';
+  price: number;
+};
+
+type PizzaSizeOption = {
   size: 'bambino' | 'small' | 'medium' | 'large' | 'extra-large';
   price: number;
 };
 
-export interface MenuItemBase {
+interface MenuItemBaseCommon {
+  _id: string;
   name: string;
   description?: string;
   icon?: string;
@@ -12,7 +18,6 @@ export interface MenuItemBase {
   tags?: string[];
   allergens?: string[];
   isCombo?: boolean;
-
   isAvailable?: boolean;
   isOnSpecial?: boolean;
   isRecommended?: boolean;
@@ -30,12 +35,19 @@ export interface MenuItemBase {
   isSpicy?: boolean;
 }
 
-export interface PizzaItem extends MenuItemBase {
+export type RegularItem = MenuItemBaseCommon & {
+  type: 'regular';
   sizes: SizeOption[];
-}
+};
 
-export interface ComboItem extends MenuItemBase {
+export type PizzaItem = MenuItemBaseCommon & {
+  type: 'pizza';
+  sizes: PizzaSizeOption[];
+};
+
+export type ComboItem = MenuItemBaseCommon & {
+  type: 'combo';
   includedItems: string[];
-}
+};
 
-export type MenuItem = MenuItem | PizzaItem | ComboItem;
+export type MenuItem = RegularItem | PizzaItem | ComboItem;

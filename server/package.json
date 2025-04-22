@@ -17,7 +17,7 @@
     "cors": "^2.8.5",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "express-rate-limit": "^7.4.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
@@ -38,32 +38,4 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.4"
   }
-}
-cat > server/tsconfig.json <<EOL
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "removeComments": true,
-    "sourceMap": false,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "strict": false
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist/*",
-  ],
-  "lib": [
-    "es6"
-  ]
 }
