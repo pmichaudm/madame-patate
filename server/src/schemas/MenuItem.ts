@@ -1,8 +1,9 @@
-import mongoose, {Schema} from "mongoose";
-import {v4 as uuidv4} from "uuid";
+import mongoose, { Schema } from "mongoose";
+import { v4 as uuidv4 } from "uuid";
 
-export interface IMenuItem extends Document {
+export interface IMenuItem {
   _id: string;
+  type: 'regular' | 'pizza' | 'combo';
   name: string;
   description?: string;
   icon?: string;
@@ -27,41 +28,43 @@ export interface IMenuItem extends Document {
   isHalal?: boolean;
   isKosher?: boolean;
   isSpicy?: boolean;
+
   sizes?: { size: string; price: number }[];
   includedItems?: string[];
 }
 
 const MenuItemSchema = new Schema<IMenuItem>({
-  _id: { type: String, default: uuidv4 },
+  _id: { type: Schema.Types.String, default: uuidv4 },
+  type: { type: String, enum: ['regular', 'pizza', 'combo'], required: true },
   name: { type: String, required: true },
-  description: { type: String },
-  icon: { type: String },
-  price: { type: Number },
-  image: { type: String },
+  description: String,
+  icon: String,
+  price: Number,
+  image: String,
   tags: [{ type: String }],
   allergens: [{ type: String }],
-  isCombo: { type: Boolean },
+  isCombo: Boolean,
 
-  isAvailable: { type: Boolean },
-  isOnSpecial: { type: Boolean },
-  isRecommended: { type: Boolean },
-  isNew: { type: Boolean },
-  isPopular: { type: Boolean },
-  isLimited: { type: Boolean },
-  isSeasonal: { type: Boolean },
-  isVegan: { type: Boolean },
-  isVegetarian: { type: Boolean },
-  isGlutenFree: { type: Boolean },
-  isDairyFree: { type: Boolean },
-  isNutFree: { type: Boolean },
-  isHalal: { type: Boolean },
-  isKosher: { type: Boolean },
-  isSpicy: { type: Boolean },
+  isAvailable: Boolean,
+  isOnSpecial: Boolean,
+  isRecommended: Boolean,
+  isNew: Boolean,
+  isPopular: Boolean,
+  isLimited: Boolean,
+  isSeasonal: Boolean,
+  isVegan: Boolean,
+  isVegetarian: Boolean,
+  isGlutenFree: Boolean,
+  isDairyFree: Boolean,
+  isNutFree: Boolean,
+  isHalal: Boolean,
+  isKosher: Boolean,
+  isSpicy: Boolean,
 
   sizes: [{
     size: {
       type: String,
-      enum: ['bambino', 'small', 'medium', 'large', 'extra-large']
+      enum: ['bambino', 'small', 'medium', 'large', 'extra-large', 'family']
     },
     price: Number
   }],

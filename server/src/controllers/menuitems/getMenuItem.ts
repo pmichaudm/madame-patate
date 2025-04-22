@@ -1,11 +1,14 @@
 import {Request, Response} from 'express';
-import {MenuItem} from '../../models/menuitem';
-import {MenuItemModel} from '../../models/menuitem';
+import {MenuItem} from "../../schemas/MenuItem";
 
 export const getMenuItemController = async function (request: Request, response: Response): Promise<void> {
   try {
     const menuItemId = request.params.menuItemId;
-    const menuItem = await MenuItemModel.findById(menuItemId).exec();
+    if (!menuItemId) {
+      response.status(400).json({message: 'Menu item ID is required'});
+      return;
+    }
+    const menuItem = await MenuItem.findById(menuItemId);
     if (!menuItem) {
       response.status(404).json({message: 'Menu item not found'});
       return;
