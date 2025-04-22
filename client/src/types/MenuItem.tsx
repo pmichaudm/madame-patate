@@ -1,5 +1,5 @@
 type SizeOption = {
-  size: 'small' | 'medium' | 'large' | 'family';
+  size: 'small' | 'medium' | 'family';
   price: number;
 };
 
@@ -18,6 +18,7 @@ interface MenuItemBaseCommon {
   tags?: string[];
   allergens?: string[];
   isCombo?: boolean;
+  isExtra?: boolean;
   isAvailable?: boolean;
   isOnSpecial?: boolean;
   isRecommended?: boolean;
@@ -50,4 +51,35 @@ export type ComboItem = MenuItemBaseCommon & {
   includedItems: string[];
 };
 
-export type MenuItem = RegularItem | PizzaItem | ComboItem;
+export type FastFoodItem = MenuItemBaseCommon & {
+  type: 'fast-food';
+}
+
+export type FryItem = MenuItemBaseCommon & {
+  type: 'fries';
+  sizes: SizeOption[];
+}
+
+export type PoutineItem = MenuItemBaseCommon & {
+  type: 'poutine';
+  sizes: SizeOption[];
+}
+
+export type PlateItem = MenuItemBaseCommon & {
+  type: 'plate';
+}
+
+export type SandwichItem = MenuItemBaseCommon & {
+  type: 'sandwich';
+}
+
+export type SubItem = MenuItemBaseCommon & {
+  type: 'sub';
+  sizes: '7"' | '10"' | '14"';
+}
+
+export type ChickenItem = MenuItemBaseCommon & {
+  type: 'chicken';
+}
+
+export type MenuItem = RegularItem | PizzaItem | ComboItem | FastFoodItem | FryItem | PoutineItem | PlateItem | SandwichItem | SubItem | ChickenItem;

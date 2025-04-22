@@ -11,6 +11,7 @@ export interface IMenuItem {
   image?: string;
   tags?: string[];
   allergens?: string[];
+  isExtra?: boolean;
   isCombo?: boolean;
 
   isAvailable?: boolean;
@@ -43,6 +44,7 @@ const MenuItemSchema = new Schema<IMenuItem>({
   image: String,
   tags: [{ type: String }],
   allergens: [{ type: String }],
+  isExtra: Boolean,
   isCombo: Boolean,
 
   isAvailable: Boolean,
