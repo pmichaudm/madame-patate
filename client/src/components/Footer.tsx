@@ -1,6 +1,7 @@
 import logo from "../assets/logos/logo5.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faInstagram} from "@fortawesome/free-brands-svg-icons";
+import {Link} from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -17,8 +18,10 @@ export default function Footer() {
 
           <div className="flex-1 flex flex-col items-center">
             <h2 className="text-white text-2xl">Suivez-nous!</h2>
-            <FontAwesomeIcon icon={faFacebook} className="text-white text-2xl mx-2" />
-            <FontAwesomeIcon icon={faInstagram} className="text-white text-2xl mx-2" />
+            <div className="flex justify-center mt-2">
+              <a href="https://www.facebook.com/profile.php?id=61559201625206" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faFacebook} className="text-white text-3xl mx-2 hover:scale-125 hover:cursor-pointer"/></a>
+              <a href="https://www.instagram.com/cassecroutemadamepatate/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} className="text-white text-3xl mx-2 hover:scale-125 hover:cursor-pointer"/></a>
+            </div>
           </div>
         </div>
         <div className="">
